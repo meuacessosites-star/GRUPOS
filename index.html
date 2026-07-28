@@ -1,11 +1,15 @@
 
-```html
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GRUPOS VIP DE ACHADOS & PROMOÇÕES</title>
+
+  <!-- Favicon Personalizado -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png">
+  <link rel="shortcut icon" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png">
 
   <!-- Otimizações de Conexão Rápida (DNS Prefetch & Preconnect) -->
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
@@ -14,7 +18,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-  <!-- Pré-carregamento Instantâneo das Imagens Críticas -->
+  <!-- Pré-carregamento Instantâneo das Imagens Críticas e Favicon -->
+  <link rel="preload" as="image" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png" fetchpriority="high">
   <link rel="preload" as="image" href="https://i.postimg.cc/cCSvPx9n/file-0000000080c0820e8bfde13c61c16156-transfer-2026-07-27-181719.png" fetchpriority="high">
   <link rel="preload" as="image" href="https://i.postimg.cc/brVMGWfV/Design-sem-nome-20250530-092658-0000.png" fetchpriority="high">
   <link rel="preload" as="image" href="https://i.postimg.cc/Y0TRBHHt/20260705-002844-779-pptx-20260721-204557-0000.png" fetchpriority="high">
@@ -208,7 +213,7 @@
         <input 
           type="text" 
           id="searchInput" 
-          placeholder="Procurar grupo ou oferta..." 
+          placeholder="Buscar grupo ou oferta..." 
           class="w-full bg-[#0c1322]/90 border border-slate-800 text-[11px] sm:text-xs text-white placeholder-gray-500 rounded-xl pl-8 pr-3 py-1.5 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/30 transition-all shadow-inner"
         >
       </div>
@@ -246,7 +251,7 @@
         <i class="fa-solid fa-search"></i>
       </div>
       <h3 class="text-xs font-bold text-white mb-0.5">Nenhum grupo encontrado</h3>
-      <p class="text-gray-400 text-[10px]">Tente procurar por outras palavras-chave ou limpe os filtros.</p>
+      <p class="text-gray-400 text-[10px]">Tente buscar por outras palavras-chave ou limpe os filtros.</p>
     </div>
 
     <!-- FRASE EXPLICATIVA ABAIXO DOS CARDS -->
@@ -265,7 +270,7 @@
       </div>
       <h2 class="text-xs sm:text-sm font-bold font-heading text-white">Por que entrar nos nossos grupos?</h2>
       <p class="text-gray-400 text-[10px] sm:text-[11px] max-w-xl mx-auto leading-relaxed">
-        Publicamos apenas ofertas de lojas oficiais e confiáveis (Amazon, Shopee, Mercado Livre, Magalu, Casas Bahia, etc.). Sem spam, sem complicações.
+        Postamos apenas ofertas de lojas oficiais e confiáveis (Amazon, Shopee, Mercado Livre, Magalu, Casas Bahia, etc.). Sem spam, sem enrolação.
       </p>
     </div>
   </section>
@@ -277,7 +282,7 @@
       <div class="flex items-center gap-2.5 text-gray-400">
         <span class="hover:text-white transition-colors cursor-pointer" onclick="showToast('Acesso 100% público e gratuito!')">Política de Privacidade</span>
         <span>•</span>
-        <span class="hover:text-white transition-colors cursor-pointer" onclick="showToast('Links verificados antispam')">Termos de Utilização</span>
+        <span class="hover:text-white transition-colors cursor-pointer" onclick="showToast('Links verificados antispam')">Termos de Uso</span>
       </div>
     </div>
   </footer>
@@ -285,29 +290,29 @@
   <!-- TOAST DE NOTIFICAÇÃO -->
   <div id="toastContainer" class="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col gap-1.5 items-center w-full max-w-xs px-3"></div>
 
-  <!-- MODAL DE PARTILHA -->
+  <!-- MODAL DE COMPARTILHAMENTO -->
   <div id="shareModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
     <div class="bg-gray-900 border border-white/10 rounded-xl p-4 max-w-xs w-full shadow-2xl transform scale-95 transition-transform duration-300" id="shareModalContent">
       <div class="flex items-center justify-between mb-2.5">
         <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
-          <i class="fa-solid fa-share-nodes text-purple-400"></i> Partilhar Grupo
+          <i class="fa-solid fa-share-nodes text-purple-400"></i> Compartilhar Grupo
         </h3>
         <button onclick="closeShareModal()" class="w-6 h-6 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-colors">
           <i class="fa-solid fa-xmark text-[10px]"></i>
         </button>
       </div>
       
-      <p class="text-[11px] text-gray-400 mb-3" id="modalGroupTitle">Escolha como deseja partilhar este grupo com os seus amigos:</p>
+      <p class="text-[11px] text-gray-400 mb-3" id="modalGroupTitle">Escolha como deseja compartilhar este grupo com seus amigos:</p>
       
       <div class="space-y-1.5">
         <button id="btnShareWhatsApp" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg font-bold text-[11px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-md shadow-emerald-500/20">
-          <i class="fa-brands fa-whatsapp text-sm"></i> Partilhar via WhatsApp
+          <i class="fa-brands fa-whatsapp text-sm"></i> Compartilhar via WhatsApp
         </button>
         <button id="btnShareTelegram" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg font-bold text-[11px] text-white bg-[#229ED9] hover:bg-[#1d8cb0] transition-all shadow-md shadow-sky-500/20">
-          <i class="fa-brands fa-telegram text-sm"></i> Partilhar via Telegram
+          <i class="fa-brands fa-telegram text-sm"></i> Compartilhar via Telegram
         </button>
         <button id="btnCopyModalLink" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg font-bold text-[11px] text-white bg-gray-800 hover:bg-gray-700 border border-white/10 transition-all">
-          <i class="fa-solid fa-copy text-amber-400"></i> Copiar Ligação do Grupo
+          <i class="fa-solid fa-copy text-amber-400"></i> Copiar Link do Grupo
         </button>
       </div>
     </div>
@@ -398,7 +403,7 @@
             </div>
           </div>
 
-          <!-- Logo e Títulos Reduzidos com Otimização de Imagem High Priority -->
+          <!-- Logo e Títulos Reduzidos -->
           <div class="flex items-center gap-2.5">
             <div class="flex-shrink-0 relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 shadow-md shadow-black/50 bg-gray-900 group/logo">
               <img 
@@ -424,200 +429,866 @@
           </div>
 
           <!-- Descrição Compacta -->
-          <p class="text-gray-300 text-[11px] sm:text-xs mt-2 leading-snug font-normal">
-            ${group.description}
-          </p>
-        </div>
+          <p class="text-gray-300 text-[11px] sm:text-xs mt```html
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRUPOS VIP DE ACHADOS & PROMOÇÕES</title>
 
-        <!-- Botões de Ação Compactos -->
-        <div class="p-3 sm:p-4 space-y-2 bg-gray-900/40">
-          
-          <!-- Botão WhatsApp -->
-          <a 
-            href="${group.whatsappUrl}" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 text-white font-extrabold text-[11px] sm:text-xs hover:from-emerald-400 hover:to-green-500 transition-all shadow-md shadow-emerald-500/20 active:scale-[0.98] group/btn btn-glow-whatsapp"
-          >
-            <div class="flex items-center gap-2">
-              <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">
-                <i class="fa-brands fa-whatsapp"></i>
-              </div>
-              <span>Entrar no WhatsApp</span>
-            </div>
-            <i class="fa-solid fa-arrow-right text-[9px] group-hover/btn:translate-x-1 transition-transform"></i>
-          </a>
+  <!-- Favicon Personalizado -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png">
+  <link rel="shortcut icon" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png">
 
-          <!-- Botão Telegram -->
-          <a 
-            href="${group.telegramUrl}" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="w-full flex items-center justify-between px-3.5 py-2 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-extrabold text-[11px] sm:text-xs hover:from-sky-400 hover:to-blue-500 transition-all shadow-md shadow-sky-500/20 active:scale-[0.98] group/btn btn-glow-telegram"
-          >
-            <div class="flex items-center gap-2">
-              <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">
-                <i class="fa-brands fa-telegram"></i>
-              </div>
-              <span>Entrar no Telegram</span>
-            </div>
-            <i class="fa-solid fa-arrow-right text-[9px] group-hover/btn:translate-x-1 transition-transform"></i>
-          </a>
+  <!-- Otimizações de Conexão Rápida (DNS Prefetch & Preconnect) -->
+  <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
+  <link rel="dns-prefetch" href="https://i.postimg.cc">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-          <!-- Botões de Copiar e Partilhar -->
-          <div class="grid grid-cols-2 gap-1.5 pt-0.5">
-            <button 
-              onclick="copyGroupLink('${group.whatsappUrl}')"
-              class="flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-white/10 text-gray-300 hover:text-white font-semibold text-[10px] transition-all active:scale-95"
-            >
-              <i class="fa-solid fa-copy text-amber-400"></i>
-              <span>Copiar Link</span>
-            </button>
+  <!-- Pré-carregamento Instantâneo das Imagens Críticas e Favicon -->
+  <link rel="preload" as="image" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://i.postimg.cc/cCSvPx9n/file-0000000080c0820e8bfde13c61c16156-transfer-2026-07-27-181719.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://i.postimg.cc/brVMGWfV/Design-sem-nome-20250530-092658-0000.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://i.postimg.cc/Y0TRBHHt/20260705-002844-779-pptx-20260721-204557-0000.png" fetchpriority="high">
 
-            <button 
-              onclick="openShareModal('${group.id}')"
-              class="flex items-center justify-center gap-1 py-1.5 px-2 rounded-lg bg-slate-800/80 hover:bg-slate-700/80 border border-white/10 text-gray-300 hover:text-white font-semibold text-[10px] transition-all active:scale-95"
-            >
-              <i class="fa-solid fa-share-nodes text-purple-400"></i>
-              <span>Partilhar</span>
-            </button>
-          </div>
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        </div>
-      `;
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-      return card;
-    }
-
-    function setupEventListeners() {
-      const searchInput = document.getElementById('searchInput');
-      if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          searchQuery = e.target.value;
-          renderGroups();
-        });
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#070a12',
+              card: '#111827',
+              whatsapp: '#25D366',
+              telegram: '#229ED9',
+              accent: '#f43f5e',
+              pink: '#ec4899',
+              purple: '#a855f7',
+              gold: '#f59e0b',
+            }
+          }
+        }
       }
-
-      const catButtons = document.querySelectorAll('#categoryFilters .cat-btn');
-      catButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          catButtons.forEach(b => {
-            b.classList.remove('active', 'bg-gradient-to-r', 'from-fuchsia-600', 'to-pink-600', 'text-white', 'shadow-md', 'shadow-pink-500/20');
-            b.classList.add('bg-[#0f172a]/90', 'text-gray-300', 'border', 'border-slate-800');
-          });
-
-          btn.classList.add('active', 'bg-gradient-to-r', 'from-fuchsia-600', 'to-pink-600', 'text-white', 'shadow-md', 'shadow-pink-500/20');
-          btn.classList.remove('bg-[#0f172a]/90', 'text-gray-300', 'border', 'border-slate-800');
-
-          currentFilter = btn.getAttribute('data-cat');
-          renderGroups();
-        });
-      });
-    }
-
-    function copyGroupLink(url) {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(url)
-          .then(() => showToast("Link copiado com sucesso!"))
-          .catch(() => fallbackCopy(url));
-      } else {
-        fallbackCopy(url);
-      }
-    }
-
-    function fallbackCopy(text) {
-      const textArea = document.createElement("textarea");
-      textArea.value = text;
-      textArea.style.position = "fixed";
-      textArea.style.left = "-999999px";
-      document.body.appendChild(textArea);
-      textArea.focus();
-      textArea.select();
-      try {
-        document.execCommand('copy');
-        showToast("Link copiado com sucesso!");
-      } catch (err) {
-        showToast("Não foi possível copiar o link.");
-      }
-      document.body.removeChild(textArea);
-    }
-
-    function showToast(message) {
-      const container = document.getElementById('toastContainer');
-      const toast = document.createElement('div');
-      toast.className = 'toast-enter pointer-events-auto flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-900 border border-emerald-500/40 text-white shadow-2xl shadow-emerald-500/20 text-[11px] font-semibold';
-      toast.innerHTML = `
-        <div class="w-3.5 h-3.5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-[8px]">
-          <i class="fa-solid fa-check"></i>
-        </div>
-        <span>${message}</span>
-      `;
-
-      container.appendChild(toast);
-
-      setTimeout(() => {
-        toast.classList.remove('toast-enter');
-        toast.classList.add('toast-exit');
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-
-    function openShareModal(groupId) {
-      const group = GRUPOS.find(g => g.id === groupId);
-      if (!group) return;
-
-      const modal = document.getElementById('shareModal');
-      const modalContent = document.getElementById('shareModalContent');
-      document.getElementById('modalGroupTitle').textContent = `Partilhar "${group.title}" com os seus contactos:`;
-
-      const btnWA = document.getElementById('btnShareWhatsApp');
-      const btnTG = document.getElementById('btnShareTelegram');
-      const btnCopy = document.getElementById('btnCopyModalLink');
-
-      const shareText = `Entre no grupo ${group.title} e receba as melhores promoções!\n${group.whatsappUrl}`;
-
-      btnWA.onclick = () => {
-        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`, '_blank');
-        closeShareModal();
-      };
-
-      btnTG.onclick = () => {
-        window.open(`https://t.me/share/url?url=${encodeURIComponent(group.telegramUrl)}&text=${encodeURIComponent(group.title)}`, '_blank');
-        closeShareModal();
-      };
-
-      btnCopy.onclick = () => {
-        copyGroupLink(group.whatsappUrl);
-        closeShareModal();
-      };
-
-      modal.classList.remove('pointer-events-none', 'opacity-0');
-      modalContent.classList.remove('scale-95');
-      modalContent.classList.add('scale-100');
-    }
-
-    function closeShareModal() {
-      const modal = document.getElementById('shareModal');
-      const modalContent = document.getElementById('shareModalContent');
-      modalContent.classList.remove('scale-100');
-      modalContent.classList.add('scale-95');
-      modal.classList.add('opacity-0', 'pointer-events-none');
-    }
-
-    // Execução Imediata de Carregamento dos Cards (Zero Delay)
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('year').textContent = new Date().getFullYear();
-        renderGroups();
-        setupEventListeners();
-      });
-    } else {
-      document.getElementById('year').textContent = new Date().getFullYear();
-      renderGroups();
-      setupEventListeners();
     }
   </script>
-</body>
-</html>
 
-```
+  <style>
+    /* Estilos personalizados do tema Dark */
+    body {
+      background-color: #070a12;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Efeito Glassmorphism nos Cards */
+    .glass-card {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      contain: content;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.7), 0 0 25px -8px rgba(168, 85, 247, 0.2);
+    }
+
+    /* Luzes de Fundo Ambientais */
+    .glow-bg {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Animações dos Botões */
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px rgba(37, 211, 102, 0.35); }
+      50% { box-shadow: 0 0 20px rgba(37, 211, 102, 0.75); }
+    }
+
+    @keyframes pulseGlowTelegram {
+      0%, 100% { box-shadow: 0 0 10px rgba(34, 158, 217, 0.35); }
+      50% { box-shadow: 0 0 20px rgba(34, 158, 217, 0.75); }
+    }
+
+    .btn-glow-whatsapp {
+      animation: pulseGlow 3s infinite;
+    }
+
+    .btn-glow-telegram {
+      animation: pulseGlowTelegram 3s infinite;
+    }
+
+    /* Animação do Toast */
+    @keyframes slideUp {
+      from { transform: translateY(100%) scale(0.9); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(100%) scale(0.9); opacity: 0; }
+    }
+
+    .toast-enter {
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .toast-exit {
+      animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Esconder Scrollbar */
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Barra de Rolagem Personalizada Geral */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070a12;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative selection:bg-purple-500 selection:text-white">
+
+  <!-- Luzes de Fundo Ambientais -->
+  <div class="glow-bg w-[320px] h-[320px] bg-purple-600 top-[-80px] left-[-80px]"></div>
+  <div class="glow-bg w-[280px] h-[280px] bg-emerald-600 top-[15%] right-[-80px]"></div>
+  <div class="glow-bg w-[350px] h-[350px] bg-pink-600 bottom-[-100px] left-[10%]"></div>
+
+  <!-- CABEÇALHO DA PÁGINA -->
+  <header class="relative z-10 flex flex-col items-center text-center px-3 pt-3 pb-1 max-w-lg mx-auto w-full gap-1.5">
+    
+    <!-- Linha Superior com Badge GRUPOS OFICIAIS e Perfil com Link para o Instagram -->
+    <div class="flex items-center justify-between w-full px-1">
+      <!-- Badge GRUPOS OFICIAIS -->
+      <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold tracking-wider uppercase shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>GRUPOS OFICIAIS</span>
+        <i class="fa-solid fa-circle-check text-[9px] text-emerald-400"></i>
+      </div>
+
+      <!-- Avatar de Perfil Clicável para o Instagram -->
+      <a 
+        href="https://www.instagram.com/geovana.s.r?igsh=dm9obnlwaG9lbjB3" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        title="Ver Instagram"
+        class="w-7 h-7 rounded-full overflow-hidden border border-purple-400/50 shadow-md hover:scale-110 active:scale-95 transition-all block cursor-pointer bg-gray-800"
+      >
+        <img 
+          src="https://i.postimg.cc/cCSvPx9n/file-0000000080c0820e8bfde13c61c16156-transfer-2026-07-27-181719.png" 
+          alt="Perfil Instagram" 
+          width="28" 
+          height="28" 
+          loading="eager" 
+          fetchpriority="high"
+          decoding="async"
+          class="w-full h-full object-cover"
+        >
+      </a>
+    </div>
+
+    <!-- Título Principal em 1 Linha -->
+    <h1 class="text-[15px] sm:text-2xl font-extrabold font-heading text-white whitespace-nowrap leading-tight mt-0.5 tracking-tight">
+      GRUPOS VIP DE <span class="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">ACHADOS &</span> <span class="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">PROMOÇÕES</span>
+    </h1>
+
+    <!-- Opções/Benefícios em Badges (Pills) em Linha Única -->
+    <div class="flex flex-wrap justify-center gap-1 text-[10px] sm:text-[11px] text-gray-300 my-0.5">
+      <span class="bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">⚡ 100% Gratuito</span>
+      <span class="bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">🔄 Atualizações Diárias</span>
+      <span class="bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">⏳ Ofertas Por tempo limitado</span>
+    </div>
+
+    <!-- Barra de Pesquisa Compacta -->
+    <div class="w-full max-w-md mt-0.5">
+      <div class="relative flex items-center">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 text-[11px]"></i>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Buscar grupo ou oferta..." 
+          class="w-full bg-[#0c1322]/90 border border-slate-800 text-[11px] sm:text-xs text-white placeholder-gray-500 rounded-xl pl-8 pr-3 py-1.5 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/30 transition-all shadow-inner"
+        >
+      </div>
+    </div>
+
+    <!-- Filtro de Categorias estilo Pill -->
+    <div class="w-full max-w-md flex items-center justify-center gap-1.5 overflow-x-auto py-0.5 scrollbar-none" id="categoryFilters">
+      <button data-cat="all" class="cat-btn active bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-xl flex items-center gap-1 shrink-0 shadow-md shadow-pink-500/20">
+        <span>🌐</span> Todos
+      </button>
+      <button data-cat="promo" class="cat-btn bg-[#0f172a]/90 border border-slate-800 text-gray-300 text-[10px] sm:text-[11px] font-semibold px-3 py-1 rounded-xl flex items-center gap-1 shrink-0 hover:bg-slate-800">
+        <span>🛍️</span> Top Achados
+      </button>
+      <button data-cat="baby" class="cat-btn bg-[#0f172a]/90 border border-slate-800 text-gray-300 text-[10px] sm:text-[11px] font-semibold px-3 py-1 rounded-xl flex items-center gap-1 shrink-0 hover:bg-slate-800">
+        <span>🤱</span> Mamãe & Bebê
+      </button>
+    </div>
+
+    <!-- Texto de Orientação -->
+    <p class="text-[9px] sm:text-[10px] text-gray-400 font-normal text-center whitespace-nowrap overflow-hidden text-ellipsis my-0.5">
+      Escolha um grupo abaixo para entrar no WhatsApp ou Telegram 👇
+    </p>
+
+  </header>
+
+  <!-- SEÇÃO PRINCIPAL - CARDS ULTRA-COMPACTOS DOS GRUPOS -->
+  <main class="relative z-10 flex-grow px-3 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full pt-1 pb-6">
+    <div id="groupsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-5">
+      <!-- Injetado dinamicamente via JavaScript -->
+    </div>
+
+    <!-- MENSAGEM QUANDO NÃO HÁ RESULTADOS -->
+    <div id="noResults" class="hidden text-center py-8">
+      <div class="w-10 h-10 mx-auto mb-2 rounded-full bg-white/5 flex items-center justify-center text-base text-gray-500">
+        <i class="fa-solid fa-search"></i>
+      </div>
+      <h3 class="text-xs font-bold text-white mb-0.5">Nenhum grupo encontrado</h3>
+      <p class="text-gray-400 text-[10px]">Tente buscar por outras palavras-chave ou limpe os filtros.</p>
+    </div>
+
+    <!-- FRASE EXPLICATIVA ABAIXO DOS CARDS -->
+    <div class="mt-5 text-center max-w-lg mx-auto px-2">
+      <p class="text-[11px] sm:text-xs text-gray-300 font-normal leading-relaxed">
+        Economize todos os dias! Entre nos nossos grupos exclusivos no WhatsApp e Telegram e receba em primeira mão as melhores ofertas, cupons de desconto e achadinhos imperdíveis.
+      </p>
+    </div>
+  </main>
+
+  <!-- BANNER INFORMATIVO INFERIOR -->
+  <section class="relative z-10 border-t border-white/5 bg-gray-950/60 backdrop-blur-md py-4 px-3">
+    <div class="max-w-4xl mx-auto text-center space-y-1">
+      <div class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-purple-500/10 text-purple-400 text-xs mb-0.5">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h2 class="text-xs sm:text-sm font-bold font-heading text-white">Por que entrar nos nossos grupos?</h2>
+      <p class="text-gray-400 text-[10px] sm:text-[11px] max-w-xl mx-auto leading-relaxed">
+        Postamos apenas ofertas de lojas oficiais e confiáveis (Amazon, Shopee, Mercado Livre, Magalu, Casas Bahia, etc.). Sem spam, sem enrolação.
+      </p>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="relative z-10 border-t border-white/5 bg-black/80 py-3.5 px-3 text-center text-[9px] sm:text-[10px] text-gray-500">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p>© <span id="year"></span> Central de Achados & Promoções. Todos os direitos reservados.</p>
+      <div class="flex items-center gap-2.5 text-gray-400">
+        <span class="hover:text-white transition-colors cursor-pointer" onclick="showToast('Acesso 100% público e gratuito!')">Política de Privacidade</span>
+        <span>•</span>
+        <span class="hover:text-white transition-colors cursor-pointer" onclick="showToast('Links verificados antispam')">Termos de Uso</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST DE NOTIFICAÇÃO -->
+  <div id="toastContainer" class="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col gap-1.5 items-center w-full max-w-xs px-3"></div>
+
+  <!-- MODAL DE COMPARTILHAMENTO -->
+  <div id="shareModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-gray-900 border border-white/10 rounded-xl p-4 max-w-xs w-full shadow-2xl transform scale-95 transition-transform duration-300" id="shareModalContent">
+      <div class="flex items-center justify-between mb-2.5">
+        <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
+          <i class="fa-solid fa-share-nodes text-purple-400"></i> Compartilhar Grupo
+        </h3>
+        <button onclick="closeShareModal()" class="w-6 h-6 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-xmark text-[10px]"></i>
+        </button>
+      </div>
+      
+      <p class="text-[11px] text-gray-400 mb-3" id="modalGroupTitle">Escolha como deseja compartilhar este grupo com seus amigos:</p>
+      
+      <div class="space-y-1.5">
+        <button id="btnShareWhatsApp" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg font-bold text-[11px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-md shadow-emerald-500/20">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Compartilhar via WhatsApp
+        </button>
+        <button id="btnShareTelegram" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg font-bold text-[11px] text-white bg-[#229ED9] hover:bg-[#1d8cb0] transition-all shadow-md shadow-sky-500/20">
+          <i class="fa-brands fa-telegram text-sm"></i> Compartilhar via Telegram
+        </button>
+        <button id="btnCopyModalLink" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg font-bold text-[11px] text-white bg-gray-800 hover:bg-gray-700 border border-white/10 transition-all">
+          <i class="fa-solid fa-copy text-amber-400"></i> Copiar Link do Grupo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT JS PRINCIPAL - RENDERIZAÇÃO INSTANTÂNEA -->
+  <script>
+    /* ==========================================================================
+       ESTRUTURA DE DADOS DOS GRUPOS
+       ========================================================================== */
+    const GRUPOS = [
+      {
+        id: "group-1",
+        category: "promo",
+        title: "🛍️ Top Achados e Promo 🪄",
+        subtitle: "PROMOÇÕES & DESCONTOS DIÁRIOS",
+        description: "As melhores promoções, cupons de desconto e achados da internet diários.",
+        badgeText: "🔥 MAIS POPULAR",
+        badgeColor: "from-red-500 via-orange-500 to-amber-500",
+        whatsappUrl: "https://chat.whatsapp.com/FkfjItWcwoP3yWYMHsHKtn?s=cl&p=a&ilr=4",
+        telegramUrl: "https://t.me/topachadosepromo",
+        imageUrl: "https://i.postimg.cc/brVMGWfV/Design-sem-nome-20250530-092658-0000.png",
+        bannerTheme: "from-amber-950/40 via-purple-950/20 to-gray-900",
+        borderColor: "hover:border-amber-500/50"
+      },
+      {
+        id: "group-2",
+        category: "baby",
+        title: "🤱 Achados Mamãe & Bebê",
+        subtitle: "UNIVERSO MATERNO & INFANTIL",
+        description: "Ofertas exclusivas, fraldas, roupas e achadinhos para mamães e bebês.",
+        badgeText: "🍼 TENDÊNCIA",
+        badgeColor: "from-pink-500 to-sky-400",
+        whatsappUrl: "https://chat.whatsapp.com/JIoT9Bk27I8GslB2kZpiDI?s=cl&p=a&ilr=4",
+        telegramUrl: "https://t.me/achadosmamaebebe",
+        imageUrl: "https://i.postimg.cc/Y0TRBHHt/20260705-002844-779-pptx-20260721-204557-0000.png",
+        bannerTheme: "from-pink-950/40 via-sky-950/20 to-gray-900",
+        borderColor: "hover:border-pink-500/50"
+      }
+    ];
+
+    /* ==========================================================================
+       LÓGICA E RENDERIZAÇÃO DOS CARDS (EXECUÇÃO IMEDIATA)
+       ========================================================================== */
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function renderGroups() {
+      const container = document.getElementById('groupsContainer');
+      const noResults = document.getElementById('noResults');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const filtered = GRUPOS.filter(group => {
+        const matchesCategory = currentFilter === 'all' || group.category === currentFilter;
+        const matchesSearch = group.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              group.description.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        filtered.forEach(group => {
+          container.appendChild(createGroupCard(group));
+        });
+      }
+    }
+
+    function createGroupCard(group) {
+      const card = document.createElement('div');
+      card.className = `glass-card rounded-2xl overflow-hidden relative flex flex-col justify-between ${group.borderColor}`;
+
+      card.innerHTML = `
+        <!-- Cabeçalho do Card (Padding Compacto) -->
+        <div class="relative p-3.5 sm:p-4 bg-gradient-to-br ${group.bannerTheme} border-b border-white/5">
+          
+          <!-- Badges -->
+          <div class="flex items-center justify-between gap-1.5 mb-2.5">
+            <span class="px-2.5 py-0.5 rounded-full text-[9px] font-extrabold text-white bg-gradient-to-r ${group.badgeColor} shadow-sm uppercase tracking-wider">
+              ${group.badgeText}
+            </span>
+            <div class="flex items-center gap-1 text-[9px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="font-medium">Grupo Ativo</span>
+            </div>
+          </div>
+
+          <!-- Logo e Títulos Reduzidos -->
+          <div class="flex items-center gap-2.5">
+            <div class="flex-shrink-0 relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 shadow-md shadow-black/50 bg-gray-900 group/logo">
+              <img 
+                src="${group.imageUrl}" 
+                alt="${group.title}" 
+                width="56"
+                height="56"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                class="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover/logo:scale-105"
+              />
+            </div>
+            
+            <div class="flex-1 min-w-0">
+              <h3 class="text-sm sm:text-base font-bold font-heading text-white leading-tight mb-0.5">
+                ${group.title}
+              </h3>
+              <p class="text-[9px] sm:text-[10px] font-bold text-purple-300 uppercase tracking-wide">
+                ${group.subtitle}
+              </p>
+            </div>
+          </div>
+
+          <!-- Descrição Compacta -->
+          <p class="text-gray-300 text-[11px] sm:text-xs mt```html
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRUPOS VIP DE ACHADOS & PROMOÇÕES</title>
+
+  <!-- Favicon Personalizado -->
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png">
+  <link rel="shortcut icon" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png">
+
+  <!-- Otimizações de Conexão Rápida (DNS Prefetch & Preconnect) -->
+  <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
+  <link rel="dns-prefetch" href="https://i.postimg.cc">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Pré-carregamento Instantâneo das Imagens Críticas e Favicon -->
+  <link rel="preload" as="image" href="https://i.postimg.cc/MHXtJ6r8/1785244951887.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://i.postimg.cc/cCSvPx9n/file-0000000080c0820e8bfde13c61c16156-transfer-2026-07-27-181719.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://i.postimg.cc/brVMGWfV/Design-sem-nome-20250530-092658-0000.png" fetchpriority="high">
+  <link rel="preload" as="image" href="https://i.postimg.cc/Y0TRBHHt/20260705-002844-779-pptx-20260721-204557-0000.png" fetchpriority="high">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#070a12',
+              card: '#111827',
+              whatsapp: '#25D366',
+              telegram: '#229ED9',
+              accent: '#f43f5e',
+              pink: '#ec4899',
+              purple: '#a855f7',
+              gold: '#f59e0b',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos personalizados do tema Dark */
+    body {
+      background-color: #070a12;
+      color: #f3f4f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Efeito Glassmorphism nos Cards */
+    .glass-card {
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      contain: content;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.7), 0 0 25px -8px rgba(168, 85, 247, 0.2);
+    }
+
+    /* Luzes de Fundo Ambientais */
+    .glow-bg {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Animações dos Botões */
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 10px rgba(37, 211, 102, 0.35); }
+      50% { box-shadow: 0 0 20px rgba(37, 211, 102, 0.75); }
+    }
+
+    @keyframes pulseGlowTelegram {
+      0%, 100% { box-shadow: 0 0 10px rgba(34, 158, 217, 0.35); }
+      50% { box-shadow: 0 0 20px rgba(34, 158, 217, 0.75); }
+    }
+
+    .btn-glow-whatsapp {
+      animation: pulseGlow 3s infinite;
+    }
+
+    .btn-glow-telegram {
+      animation: pulseGlowTelegram 3s infinite;
+    }
+
+    /* Animação do Toast */
+    @keyframes slideUp {
+      from { transform: translateY(100%) scale(0.9); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(100%) scale(0.9); opacity: 0; }
+    }
+
+    .toast-enter {
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .toast-exit {
+      animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Esconder Scrollbar */
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Barra de Rolagem Personalizada Geral */
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070a12;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative selection:bg-purple-500 selection:text-white">
+
+  <!-- Luzes de Fundo Ambientais -->
+  <div class="glow-bg w-[320px] h-[320px] bg-purple-600 top-[-80px] left-[-80px]"></div>
+  <div class="glow-bg w-[280px] h-[280px] bg-emerald-600 top-[15%] right-[-80px]"></div>
+  <div class="glow-bg w-[350px] h-[350px] bg-pink-600 bottom-[-100px] left-[10%]"></div>
+
+  <!-- CABEÇALHO DA PÁGINA -->
+  <header class="relative z-10 flex flex-col items-center text-center px-3 pt-3 pb-1 max-w-lg mx-auto w-full gap-1.5">
+    
+    <!-- Linha Superior com Badge GRUPOS OFICIAIS e Perfil com Link para o Instagram -->
+    <div class="flex items-center justify-between w-full px-1">
+      <!-- Badge GRUPOS OFICIAIS -->
+      <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold tracking-wider uppercase shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>GRUPOS OFICIAIS</span>
+        <i class="fa-solid fa-circle-check text-[9px] text-emerald-400"></i>
+      </div>
+
+      <!-- Avatar de Perfil Clicável para o Instagram -->
+      <a 
+        href="https://www.instagram.com/geovana.s.r?igsh=dm9obnlwaG9lbjB3" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        title="Ver Instagram"
+        class="w-7 h-7 rounded-full overflow-hidden border border-purple-400/50 shadow-md hover:scale-110 active:scale-95 transition-all block cursor-pointer bg-gray-800"
+      >
+        <img 
+          src="https://i.postimg.cc/cCSvPx9n/file-0000000080c0820e8bfde13c61c16156-transfer-2026-07-27-181719.png" 
+          alt="Perfil Instagram" 
+          width="28" 
+          height="28" 
+          loading="eager" 
+          fetchpriority="high"
+          decoding="async"
+          class="w-full h-full object-cover"
+        >
+      </a>
+    </div>
+
+    <!-- Título Principal em 1 Linha -->
+    <h1 class="text-[15px] sm:text-2xl font-extrabold font-heading text-white whitespace-nowrap leading-tight mt-0.5 tracking-tight">
+      GRUPOS VIP DE <span class="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">ACHADOS &</span> <span class="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">PROMOÇÕES</span>
+    </h1>
+
+    <!-- Opções/Benefícios em Badges (Pills) em Linha Única -->
+    <div class="flex flex-wrap justify-center gap-1 text-[10px] sm:text-[11px] text-gray-300 my-0.5">
+      <span class="bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">⚡ 100% Gratuito</span>
+      <span class="bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">🔄 Atualizações Diárias</span>
+      <span class="bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-full flex items-center gap-1">⏳ Ofertas Por tempo limitado</span>
+    </div>
+
+    <!-- Barra de Pesquisa Compacta -->
+    <div class="w-full max-w-md mt-0.5">
+      <div class="relative flex items-center">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 text-[11px]"></i>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Buscar grupo ou oferta..." 
+          class="w-full bg-[#0c1322]/90 border border-slate-800 text-[11px] sm:text-xs text-white placeholder-gray-500 rounded-xl pl-8 pr-3 py-1.5 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/30 transition-all shadow-inner"
+        >
+      </div>
+    </div>
+
+    <!-- Filtro de Categorias estilo Pill -->
+    <div class="w-full max-w-md flex items-center justify-center gap-1.5 overflow-x-auto py-0.5 scrollbar-none" id="categoryFilters">
+      <button data-cat="all" class="cat-btn active bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-xl flex items-center gap-1 shrink-0 shadow-md shadow-pink-500/20">
+        <span>🌐</span> Todos
+      </button>
+      <button data-cat="promo" class="cat-btn bg-[#0f172a]/90 border border-slate-800 text-gray-300 text-[10px] sm:text-[11px] font-semibold px-3 py-1 rounded-xl flex items-center gap-1 shrink-0 hover:bg-slate-800">
+        <span>🛍️</span> Top Achados
+      </button>
+      <button data-cat="baby" class="cat-btn bg-[#0f172a]/90 border border-slate-800 text-gray-300 text-[10px] sm:text-[11px] font-semibold px-3 py-1 rounded-xl flex items-center gap-1 shrink-0 hover:bg-slate-800">
+        <span>🤱</span> Mamãe & Bebê
+      </button>
+    </div>
+
+    <!-- Texto de Orientação -->
+    <p class="text-[9px] sm:text-[10px] text-gray-400 font-normal text-center whitespace-nowrap overflow-hidden text-ellipsis my-0.5">
+      Escolha um grupo abaixo para entrar no WhatsApp ou Telegram 👇
+    </p>
+
+  </header>
+
+  <!-- SEÇÃO PRINCIPAL - CARDS ULTRA-COMPACTOS DOS GRUPOS -->
+  <main class="relative z-10 flex-grow px-3 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full pt-1 pb-6">
+    <div id="groupsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-5">
+      <!-- Injetado dinamicamente via JavaScript -->
+    </div>
+
+    <!-- MENSAGEM QUANDO NÃO HÁ RESULTADOS -->
+    <div id="noResults" class="hidden text-center py-8">
+      <div class="w-10 h-10 mx-auto mb-2 rounded-full bg-white/5 flex items-center justify-center text-base text-gray-500">
+        <i class="fa-solid fa-search"></i>
+      </div>
+      <h3 class="text-xs font-bold text-white mb-0.5">Nenhum grupo encontrado</h3>
+      <p class="text-gray-400 text-[10px]">Tente buscar por outras palavras-chave ou limpe os filtros.</p>
+    </div>
+
+    <!-- FRASE EXPLICATIVA ABAIXO DOS CARDS -->
+    <div class="mt-5 text-center max-w-lg mx-auto px-2">
+      <p class="text-[11px] sm:text-xs text-gray-300 font-normal leading-relaxed">
+        Economize todos os dias! Entre nos nossos grupos exclusivos no WhatsApp e Telegram e receba em primeira mão as melhores ofertas, cupons de desconto e achadinhos imperdíveis.
+      </p>
+    </div>
+  </main>
+
+  <!-- BANNER INFORMATIVO INFERIOR -->
+  <section class="relative z-10 border-t border-white/5 bg-gray-950/60 backdrop-blur-md py-4 px-3">
+    <div class="max-w-4xl mx-auto text-center space-y-1">
+      <div class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-purple-500/10 text-purple-400 text-xs mb-0.5">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h2 class="text-xs sm:text-sm font-bold font-heading text-white">Por que entrar nos nossos grupos?</h2>
+      <p class="text-gray-400 text-[10px] sm:text-[11px] max-w-xl mx-auto leading-relaxed">
+        Postamos apenas ofertas de lojas oficiais e confiáveis (Amazon, Shopee, Mercado Livre, Magalu, Casas Bahia, etc.). Sem spam, sem enrolação.
+      </p>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="relative z-10 border-t border-white/5 bg-black/80 py-3.5 px-3 text-center text-[9px] sm:text-[10px] text-gray-500">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p>© <span id="year"></span> Central de Achados & Promoções. Todos os direitos reservados.</p>
+      <div class="flex items-center gap-2.5 text-gray-400">
+        <span class="hover:text-white transition-colors cursor-pointer" onclick="showToast('Acesso 100% público e gratuito!')">Política de Privacidade</span>
+        <span>•</span>
+        <span class="hover:text-white transition-colors cursor-pointer" onclick="showToast('Links verificados antispam')">Termos de Uso</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST DE NOTIFICAÇÃO -->
+  <div id="toastContainer" class="fixed bottom-3 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col gap-1.5 items-center w-full max-w-xs px-3"></div>
+
+  <!-- MODAL DE COMPARTILHAMENTO -->
+  <div id="shareModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-gray-900 border border-white/10 rounded-xl p-4 max-w-xs w-full shadow-2xl transform scale-95 transition-transform duration-300" id="shareModalContent">
+      <div class="flex items-center justify-between mb-2.5">
+        <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
+          <i class="fa-solid fa-share-nodes text-purple-400"></i> Compartilhar Grupo
+        </h3>
+        <button onclick="closeShareModal()" class="w-6 h-6 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-xmark text-[10px]"></i>
+        </button>
+      </div>
+      
+      <p class="text-[11px] text-gray-400 mb-3" id="modalGroupTitle">Escolha como deseja compartilhar este grupo com seus amigos:</p>
+      
+      <div class="space-y-1.5">
+        <button id="btnShareWhatsApp" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg font-bold text-[11px] text-white bg-[#25D366] hover:bg-[#20bd5a] transition-all shadow-md shadow-emerald-500/20">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Compartilhar via WhatsApp
+        </button>
+        <button id="btnShareTelegram" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg font-bold text-[11px] text-white bg-[#229ED9] hover:bg-[#1d8cb0] transition-all shadow-md shadow-sky-500/20">
+          <i class="fa-brands fa-telegram text-sm"></i> Compartilhar via Telegram
+        </button>
+        <button id="btnCopyModalLink" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg font-bold text-[11px] text-white bg-gray-800 hover:bg-gray-700 border border-white/10 transition-all">
+          <i class="fa-solid fa-copy text-amber-400"></i> Copiar Link do Grupo
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT JS PRINCIPAL - RENDERIZAÇÃO INSTANTÂNEA -->
+  <script>
+    /* ==========================================================================
+       ESTRUTURA DE DADOS DOS GRUPOS
+       ========================================================================== */
+    const GRUPOS = [
+      {
+        id: "group-1",
+        category: "promo",
+        title: "🛍️ Top Achados e Promo 🪄",
+        subtitle: "PROMOÇÕES & DESCONTOS DIÁRIOS",
+        description: "As melhores promoções, cupons de desconto e achados da internet diários.",
+        badgeText: "🔥 MAIS POPULAR",
+        badgeColor: "from-red-500 via-orange-500 to-amber-500",
+        whatsappUrl: "https://chat.whatsapp.com/FkfjItWcwoP3yWYMHsHKtn?s=cl&p=a&ilr=4",
+        telegramUrl: "https://t.me/topachadosepromo",
+        imageUrl: "https://i.postimg.cc/brVMGWfV/Design-sem-nome-20250530-092658-0000.png",
+        bannerTheme: "from-amber-950/40 via-purple-950/20 to-gray-900",
+        borderColor: "hover:border-amber-500/50"
+      },
+      {
+        id: "group-2",
+        category: "baby",
+        title: "🤱 Achados Mamãe & Bebê",
+        subtitle: "UNIVERSO MATERNO & INFANTIL",
+        description: "Ofertas exclusivas, fraldas, roupas e achadinhos para mamães e bebês.",
+        badgeText: "🍼 TENDÊNCIA",
+        badgeColor: "from-pink-500 to-sky-400",
+        whatsappUrl: "https://chat.whatsapp.com/JIoT9Bk27I8GslB2kZpiDI?s=cl&p=a&ilr=4",
+        telegramUrl: "https://t.me/achadosmamaebebe",
+        imageUrl: "https://i.postimg.cc/Y0TRBHHt/20260705-002844-779-pptx-20260721-204557-0000.png",
+        bannerTheme: "from-pink-950/40 via-sky-950/20 to-gray-900",
+        borderColor: "hover:border-pink-500/50"
+      }
+    ];
+
+    /* ==========================================================================
+       LÓGICA E RENDERIZAÇÃO DOS CARDS (EXECUÇÃO IMEDIATA)
+       ========================================================================== */
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function renderGroups() {
+      const container = document.getElementById('groupsContainer');
+      const noResults = document.getElementById('noResults');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const filtered = GRUPOS.filter(group => {
+        const matchesCategory = currentFilter === 'all' || group.category === currentFilter;
+        const matchesSearch = group.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              group.description.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        filtered.forEach(group => {
+          container.appendChild(createGroupCard(group));
+        });
+      }
+    }
+
+    function createGroupCard(group) {
+      const card = document.createElement('div');
+      card.className = `glass-card rounded-2xl overflow-hidden relative flex flex-col justify-between ${group.borderColor}`;
+
+      card.innerHTML = `
+        <!-- Cabeçalho do Card (Padding Compacto) -->
+        <div class="relative p-3.5 sm:p-4 bg-gradient-to-br ${group.bannerTheme} border-b border-white/5">
+          
+          <!-- Badges -->
+          <div class="flex items-center justify-between gap-1.5 mb-2.5">
+            <span class="px-2.5 py-0.5 rounded-full text-[9px] font-extrabold text-white bg-gradient-to-r ${group.badgeColor} shadow-sm uppercase tracking-wider">
+              ${group.badgeText}
+            </span>
+            <div class="flex items-center gap-1 text-[9px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="font-medium">Grupo Ativo</span>
+            </div>
+          </div>
+
+          <!-- Logo e Títulos Reduzidos -->
+          <div class="flex items-center gap-2.5">
+            <div class="flex-shrink-0 relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-white/20 shadow-md shadow-black/50 bg-gray-900 group/logo">
+              <img 
+                src="${group.imageUrl}" 
+                alt="${group.title}" 
+                width="56"
+                height="56"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                class="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover/logo:scale-105"
+              />
+            </div>
+            
+            <div class="flex-1 min-w-0">
+              <h3 class="text-sm sm:text-base font-bold font-heading text-white leading-tight mb-0.5">
+                ${group.title}
+              </h3>
+              <p class="text-[9px] sm:text-[10px] font-bold text-purple-300 uppercase tracking-wide">
+                ${group.subtitle}
+              </p>
+            </div>
+          </div>
+
+          <!-- Descrição Compacta -->
+          <p class="text-gray-300 text-[11px] sm:text-xs mt
